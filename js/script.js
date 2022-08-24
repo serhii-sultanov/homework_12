@@ -17,13 +17,15 @@ promise
   });
 
 //   2
-try {
-  const promise = new Promise(function (resolve, reject) {
-    setTimeout(() => resolve("done"), 5000);
-  });
-  console.log("done");
-} catch {
-  throw new Error("error");
-} finally {
-  console.log("Promise was finished!");
+async function toWait() {
+  try {
+    const result = await promise;
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("Promise was finished!");
+  }
 }
+
+toWait();
